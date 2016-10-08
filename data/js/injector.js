@@ -101,7 +101,11 @@
         // Mutable variable access precautions
         iframe.onload = (function (iframe) {
             return function () {
-                Injector.injectAll(iframe.contentWindow.document);
+                var doc = iframe.contentWindow.document;
+                Injector.injectAll(doc);
+
+                // Define a body attribute so we know we're in an iframe
+                doc.body.setAttribute('data-iframe', 'true');
             }
         })(iframe);
     }

@@ -1,0 +1,63 @@
+/**
+ * Material-Netgear-Genie
+ * Components
+ */
+
+// Buttons
+// Panels buttons
+.page-table-button-left,
+.page-table-button-right {
+    background-image: none;
+    @extend .material-button--elevated--primary;
+    @extend .material-button-xs;
+}
+
+// Overall buttons
+// Green ones
+button.button-apply {
+    span.roundleft_apply {
+        background-image: none;
+        @extend .material-button--elevated--primary;
+    }
+    span.roundright_apply {
+        display: none;
+    }
+}
+// Purple ones
+button.button-rule {
+    span.roundleft_button {
+        background-image: none;
+        @extend .material-button--elevated--secondary;
+    }
+    span.roundright_button {
+        display: none;
+    }
+}
+
+// Panels
+// Box header
+.box-header-table, .box-header-table-large {
+    height: auto;
+    background: none;
+    background-color: material-color($color-grey, 700);
+    border-radius: 2px 2px 0 0;
+
+    .box-header {
+        .box-header-text {
+            height: auto;
+            text-decoration: none;
+            vertical-align: middle;
+        }
+    }
+
+    // Box content
+    &+table {
+        border: 0!important;
+    }
+}
+// Box footer
+.page-table-bottom, .page-table-bottom-2 {
+    background: none;
+    background-color: #fff;
+    border-radius: 0 0 2px 2px;
+}

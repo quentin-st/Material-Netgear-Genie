@@ -5,20 +5,15 @@
 
 // Buttons
 .material-button {
-    cursor: default;
-    font-family: $roboto;
     border: 0;
     padding: 5px 10px;
-    margin: 3px 1px;
     @include transition-property(background, box-shadow);
     @include transition-duration($timing-short);
-    border-radius: 2px!important;
+    border-radius: 2px;
     box-shadow: none;
 
-    .x-btn-inner {
+    span {
         color: #333;
-        font-family: $roboto;
-        text-transform: uppercase;
         font-size: 12px;
         white-space: nowrap;
         font-weight: 600;
@@ -28,6 +23,14 @@
         text-decoration: none;
     }
 }
+.material-button-xs {
+    padding: 2px 7px;
+
+    span {
+        font-size: 10px;
+        font-weight: 500;
+    }
+}
 
 .material-button--flat {
     @extend .material-button;
@@ -35,7 +38,7 @@
     border: 0!important;
     background-color: transparent;
 
-    .x-btn-inner, .x-btn-icon-el {
+    span {
         color: #000;
         font-weight: 500;
     }
@@ -43,7 +46,7 @@
     &:hover {
         background-color: $color-hover-light;
     }
-    &:active, &.x-btn-pressed {
+    &:active {
         background-color: $color-active-light;
 
         color: #000;
@@ -56,7 +59,7 @@
     background-color: rgba(0, 0, 0, 0.05);
     border: 1px solid rgba(0, 0, 0, 0.15) !important;
 
-    .x-btn-inner {
+    span {
         color: #000;
     }
 
@@ -65,16 +68,17 @@
         box-shadow: $elevation-1;
     }
 
-    &:active, &.x-btn-pressed {
+    &:active {
         background-color: $color-active-light;
         box-shadow: $elevation-negative;
 
-        .x-btn-icon-el {
+        span {
             color: #000;
         }
     }
 }
 
+// Primary
 .material-button--flat--primary {
     background-color: $color-accent;
     @extend .material-button--flat;
@@ -89,16 +93,46 @@
     background-color: $color-accent;
 
     &:hover {
-        background-color: $color-accent;
+        background-color: darken($color-accent, 3);
     }
 
-    .x-btn-inner, .x-btn-icon-el {
+    span {
         color: #fff;
     }
-    &:active, &.x-btn-pressed {
-        background-color: $color-accent;
+    &:active {
+        background-color: darken($color-accent, 5);
 
-        .x-btn-icon-el {
+        span {
+            color: #fff;
+        }
+    }
+}
+
+// Secondary
+.material-button--flat--secondary {
+    background-color: $color-primary;
+    @extend .material-button--flat;
+}
+.material-button--elevated--secondary {
+    background-color: $color-primary;
+    @extend .material-button--elevated;
+}
+
+.material-button--flat--secondary,
+.material-button--elevated--secondary {
+    background-color: $color-primary;
+
+    &:hover {
+        background-color: darken($color-primary, 3);
+    }
+
+    span {
+        color: #fff;
+    }
+    &:active {
+        background-color: darken($color-primary, 5);
+
+        span {
             color: #fff;
         }
     }

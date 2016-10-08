@@ -8,3 +8,8 @@
 #basic-pane table td {
     background-color: transparent!important;
 }
+
+// Iframes body
+body[data-iframe] {
+    padding-top: 10px!important;
+}

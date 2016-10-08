@@ -111,7 +111,9 @@
         ul {
             height: auto!important;
 
-            li.SubMenu {
+            li.SubMenu,
+            li.SubMenuActive,
+            li.SubMenuActiveLarge {
                 border-bottom: 0;
 
                 a {
@@ -120,6 +122,14 @@
                     span {
                         text-decoration: none;
                         font-weight: normal;
+                    }
+                }
+
+                &.SubMenuActive,
+                &.SubMenuActiveLarge {
+                    a span {
+                        font-weight: bold;
+                        color: $color-accent;
                     }
                 }
             }
