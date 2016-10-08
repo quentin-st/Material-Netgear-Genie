@@ -3,8 +3,6 @@
  * Menu
  */
 
-// TODO icons
-
 // Define styles
 %menu-wrap {
     background: #fff;
@@ -20,7 +18,8 @@
 }
 %menu-item {
     display: block;
-    padding: 9px 12px;
+    padding: 15px 22px;
+    color: $color-text-alt;
     background-color: transparent;
     @include transition-duration($timing-short);
     @include transition-property(background-color);
@@ -32,11 +31,10 @@
         width: auto;
         margin: 0;
         padding: 0;
-        color: $color-text-dark;
+        color: $color-text-alt;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        font-weight: normal;
         font-size: 13px;
     }
 
@@ -44,19 +42,22 @@
         background-color: $color-hover-light;
     }
 }
-%menu-item--section {
-
-}
 %menu-item-wrap-active {
     background-color: $color-primary;
 
     a {
+        color: #fff;
+
         span {
             color: #fff;
             font-weight: bold;
         }
         &:hover {
             background-color: darken($color-primary, 5);
+
+            &:before {
+                color: #fff;
+            }
         }
     }
 }
@@ -93,34 +94,93 @@
             @extend %menu-item-wrap-active;
         }
     }
-    > li:not(.noSub) > a:before {
-        @include material-icon-onbefore($mdi-chevron-down);
-        float: right;
-        margin-left: 10px;
-        color: rgba(#000, 0.5);
-        line-height: 14px;
-        font-size: 14px;
-
-        &.SubActive {
+    > li:not(.noSub) {
+        > a:before {
+            @include material-icon-onbefore($mdi-chevron-down);
+            float: right;
+            margin-left: 10px;
+            color: rgba(#000, 0.5);
+            line-height: 14px;
+            font-size: 14px;
+        }
+        &.SubActive > a:before {
             @include material-icon-onbefore($mdi-chevron-up);
         }
     }
     li.subHeader {
         ul {
             height: auto!important;
-            background-color: rgba(#000, 0.06);
-            border: 1px solid $color-border-dark;
-            border-width: 1px 0;
 
             li.SubMenu {
                 border-bottom: 0;
 
                 a {
+                    padding: 10px 24px 10px 40px;
+
                     span {
                         text-decoration: none;
+                        font-weight: normal;
                     }
                 }
             }
         }
+    }
+}
+
+// ICONS
+// Define icons
+$icons-basic: (
+    basic-home: $mdi-home,
+    basic-int:  $mdi-earth,
+    basic-wls:  $mdi-router-wireless,
+    basic-atd:  $mdi-lan,
+    basic-par:  $mdi-human-child,
+    basic-rea:  $mdi-usb,
+    basic-gst:  $mdi-account-network,
+    basic-dlr:  $mdi-cloud-download
+);
+$icons-advanced: (
+    adv-home:   $mdi-home-variant,
+    wizard:     $mdi-dots-horizontal,
+    wps-wizard: $mdi-dots-horizontal,
+    setup_header:       $mdi-settings,
+    USBStorage_header:  $mdi-usb,
+    downloader_header:  $mdi-cloud-download,
+    security_header:    $mdi-security-network,
+    administration:     $mdi-settings,
+    advset_header:      $mdi-settings
+);
+
+// Base icon class
+%icon {
+    float: left;
+    margin-right: 10px;
+    line-height: 14px;
+    font-size: 21px;
+    margin-left: -8px;
+}
+
+// Apply icons
+// Basic
+.basic-menu-div a:before {
+    @include material-icon-onbefore($mdi-menu-right);
+    @extend %icon;
+}
+@each $item-id, $icon in $icons-basic {
+    .basic-menu-div##{$item-id} a:before {
+        @include material-icon-onbefore($icon);
+        @extend %icon;
+    }
+}
+
+// Advanced
+.advance-menu > li:not(.subHeader) > a:before {
+    @include material-icon-onbefore($mdi-menu-right);
+    @extend %icon;
+}
+@each $item-id, $icon in $icons-advanced {
+    .advance-menu > li##{$item-id}:not(.subHeader) > a:before {
+        @include material-icon-onbefore($icon);
+        @extend %icon;
     }
 }
