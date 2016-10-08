@@ -1,0 +1,32 @@
+/**
+ * Material-Netgear-Genie
+ * Footer
+ */
+
+$footer-height: 32px;
+#container.container_center {
+    left: 0;
+    right: 0;
+    width: 100%!important;
+    background-color: material-color($color-blue-grey, 700);
+}
+
+.footer {
+    height: auto;
+    top: 0;
+
+    .footer_img {
+        display: none;
+    }
+
+    #support, #search {
+        line-height: $footer-height;
+
+        a {
+            vertical-align: middle;
+        }
+    }
+    #search {
+        top: 0;
+    }
+}
