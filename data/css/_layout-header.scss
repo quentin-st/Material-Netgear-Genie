@@ -31,7 +31,7 @@ ul.tabs {
                 }
             }
             &:not(.current):hover {
-                background-color: $color-background-light !important;
+                background-color: $color-hover-light !important;
             }
         }
     }

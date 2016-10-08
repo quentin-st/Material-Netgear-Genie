@@ -1,0 +1,126 @@
+/**
+ * Material-Netgear-Genie
+ * Menu
+ */
+
+// TODO icons
+
+// Define styles
+%menu-wrap {
+    background: #fff;
+    margin-left: 0;
+    margin-top: 0;
+    width: 200px;
+}
+%menu-item-wrap {
+    background: none;
+    height: auto;
+    width: auto;
+    padding: 0;
+}
+%menu-item {
+    display: block;
+    padding: 9px 12px;
+    background-color: transparent;
+    @include transition-duration($timing-short);
+    @include transition-property(background-color);
+
+    span {
+        display: block;
+        float: none;
+        background: none;
+        width: auto;
+        margin: 0;
+        padding: 0;
+        color: $color-text-dark;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-weight: normal;
+        font-size: 13px;
+    }
+
+    &:hover {
+        background-color: $color-hover-light;
+    }
+}
+%menu-item--section {
+
+}
+%menu-item-wrap-active {
+    background-color: $color-primary;
+
+    a {
+        span {
+            color: #fff;
+            font-weight: bold;
+        }
+        &:hover {
+            background-color: darken($color-primary, 5);
+        }
+    }
+}
+
+// Basic tab menu
+.basic-menu {
+    @extend %menu-wrap;
+
+    .basic-menu-div {
+        @extend %menu-item-wrap;
+
+        a {
+            @extend %menu-item;
+        }
+
+        &.menuActive {
+            @extend %menu-item-wrap-active;
+        }
+    }
+}
+
+// Advanced tab menu
+.advance-menu {
+    @extend %menu-wrap;
+
+    li:not(.subHeader) {
+        @extend %menu-item-wrap;
+
+        a {
+            @extend %menu-item;
+        }
+
+        &.noSubActive {
+            @extend %menu-item-wrap-active;
+        }
+    }
+    > li:not(.noSub) > a:before {
+        @include material-icon-onbefore($mdi-chevron-down);
+        float: right;
+        margin-left: 10px;
+        color: rgba(#000, 0.5);
+        line-height: 14px;
+        font-size: 14px;
+
+        &.SubActive {
+            @include material-icon-onbefore($mdi-chevron-up);
+        }
+    }
+    li.subHeader {
+        ul {
+            height: auto!important;
+            background-color: rgba(#000, 0.06);
+            border: 1px solid $color-border-dark;
+            border-width: 1px 0;
+
+            li.SubMenu {
+                border-bottom: 0;
+
+                a {
+                    span {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+}
