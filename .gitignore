@@ -1,0 +1,13 @@
+# PhpStorm
+.idea
+
+# Bower components
+bower_components/
+
+# Compiled CSS files
+data/css/style.css*
+data/css/fonts/roboto.css*
+data/css/fonts/materialdesignicons.css*
+
+# Release files
+release/

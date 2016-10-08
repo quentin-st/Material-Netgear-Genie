@@ -1,0 +1,105 @@
+/**
+ * Material-Netgear-Genie
+ * Material buttons
+ */
+
+// Buttons
+.material-button {
+    cursor: default;
+    font-family: $roboto;
+    border: 0;
+    padding: 5px 10px;
+    margin: 3px 1px;
+    @include transition-property(background, box-shadow);
+    @include transition-duration($timing-short);
+    border-radius: 2px!important;
+    box-shadow: none;
+
+    .x-btn-inner {
+        color: #333;
+        font-family: $roboto;
+        text-transform: uppercase;
+        font-size: 12px;
+        white-space: nowrap;
+        font-weight: 600;
+    }
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.material-button--flat {
+    @extend .material-button;
+
+    border: 0!important;
+    background-color: transparent;
+
+    .x-btn-inner, .x-btn-icon-el {
+        color: #000;
+        font-weight: 500;
+    }
+
+    &:hover {
+        background-color: $color-hover-light;
+    }
+    &:active, &.x-btn-pressed {
+        background-color: $color-active-light;
+
+        color: #000;
+    }
+}
+
+.material-button--elevated {
+    @extend .material-button;
+
+    background-color: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.15) !important;
+
+    .x-btn-inner {
+        color: #000;
+    }
+
+    &:hover {
+        background-color: $color-hover-light;
+        box-shadow: $elevation-1;
+    }
+
+    &:active, &.x-btn-pressed {
+        background-color: $color-active-light;
+        box-shadow: $elevation-negative;
+
+        .x-btn-icon-el {
+            color: #000;
+        }
+    }
+}
+
+.material-button--flat--primary {
+    @extend .accent-color--background;
+    @extend .material-button--flat;
+}
+.material-button--elevated--primary {
+    @extend .accent-color--background;
+    @extend .material-button--elevated;
+}
+
+.material-button--flat--primary,
+.material-button--elevated--primary {
+    @extend .accent-color--background;
+
+    &:hover {
+        @extend .accent-color--hover--background;
+    }
+
+    .x-btn-inner, .x-btn-icon-el {
+        color: #fff;
+    }
+    &:active, &.x-btn-pressed {
+        @extend .accent-color--active--background--important;
+
+        .x-btn-icon-el {
+            color: #fff;
+        }
+    }
+}

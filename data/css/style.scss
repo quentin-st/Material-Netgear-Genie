@@ -1,0 +1,15 @@
+/**
+ * Material-Netgear-Genie
+ */
+
+// Import part files
+
+// Bower bourbon dependency
+@import '../../bower_components/bourbon/app/assets/stylesheets/bourbon';
+
+// Bower materialdesignicons-scss-variables dependency
+@import '../../bower_components/materialdesignicons-scss-variables/dist/materialdesignicons';
+@import '../../bower_components/materialdesignicons-scss-variables/dist/materialdesignicons-vars';
+
+@import 'material';
+@import 'material-buttons';
