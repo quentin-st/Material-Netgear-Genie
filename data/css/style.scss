@@ -12,4 +12,13 @@
 @import '../../bower_components/materialdesignicons-scss-variables/dist/materialdesignicons-vars';
 
 @import 'material';
+
+// Define vars
+$color-primary: material-color($color-deep-purple);
+$color-accent: material-color($color-green);
+
 @import 'material-buttons';
+@import 'ui';
+
+@import 'layout-header';
+@import 'content';

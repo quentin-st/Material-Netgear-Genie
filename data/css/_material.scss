@@ -55,41 +55,12 @@ $material-colors: (
     'blue-grey': $color-blue-grey
 );
 
-@each $color-name, $color-hexes in $material-colors {
-    $color-500: material-color($color-hexes, 500);
-    $color-600: material-color($color-hexes, 600);
-    $color-700: material-color($color-hexes, 700);
-    $color-800: material-color($color-hexes, 800);
-    $color-900: material-color($color-hexes, 900);
-
-    @each $color-type in ('primary', 'accent') {
-        $selector: 'body[data-color-#{$color-type}="#{$color-500}"]';
-
-        #{$selector} {
-            $color: $color-500;
-            $color-hover: $color-600;
-            $color-dark: $color-700;
-            $color-active: $color-800;
-
-            @each $modifier, $color in (
-                '': $color,
-                '--hover': $color-hover,
-                '--dark': $color-dark,
-                '--active': $color-active
-            ) {
-                .#{$color-type}-color#{$modifier}--color {      color: $color!important;            }
-                .#{$color-type}-color#{$modifier}--border {     border-color: $color!important;     }
-                .#{$color-type}-color#{$modifier}--background { background-color: $color;           }
-                .#{$color-type}-color#{$modifier}--background--important { background-color: $color!important; }
-            }
-        }
-    }
-}
-
 
 $color-dark:            #303030;
 $color-text-dark:       rgba(#000, 0.87);
+$color-text-dim:        rgba(#000, 0.54);
 $color-border-light:    rgba(#fff, 0.5);
+$color-border-dark:  rgba(#000, 0.12);
 
 $color-icon-dark:       #444444;
 

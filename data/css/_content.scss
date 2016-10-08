@@ -1,0 +1,10 @@
+/**
+ * Material-Netgear-Genie
+ * Content
+ */
+
+// Disable content background color
+// so we can see tabs shadow
+#basic-pane table td {
+    background-color: transparent!important;
+}

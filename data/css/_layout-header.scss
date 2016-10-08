@@ -1,0 +1,38 @@
+/**
+ * Material-Netgear-Genie
+ * Header
+ */
+
+ul.tabs {
+    height: auto;
+    border-bottom: 1px solid $color-border-dark;
+    box-shadow: 0 2px 6px -2px rgba(#000, 0.1);
+
+    li {
+        margin-left: 0;
+
+        a {
+            height: auto;
+            width: auto;
+            padding: 12px 24px;
+            background: none !important;
+            border-bottom: 2px solid transparent;
+            line-height: 24px;
+            text-transform: uppercase;
+            color: $color-text-dim;
+            @include transition-duration($timing-short);
+            @include transition-property(background-color);
+
+            &.current {
+                border-bottom-color: $color-accent;
+
+                &, &:hover {
+                    color: $color-primary !important;
+                }
+            }
+            &:not(.current):hover {
+                background-color: $color-background-light !important;
+            }
+        }
+    }
+}

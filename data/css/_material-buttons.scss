@@ -76,27 +76,27 @@
 }
 
 .material-button--flat--primary {
-    @extend .accent-color--background;
+    background-color: $color-accent;
     @extend .material-button--flat;
 }
 .material-button--elevated--primary {
-    @extend .accent-color--background;
+    background-color: $color-accent;
     @extend .material-button--elevated;
 }
 
 .material-button--flat--primary,
 .material-button--elevated--primary {
-    @extend .accent-color--background;
+    background-color: $color-accent;
 
     &:hover {
-        @extend .accent-color--hover--background;
+        background-color: $color-accent;
     }
 
     .x-btn-inner, .x-btn-icon-el {
         color: #fff;
     }
     &:active, &.x-btn-pressed {
-        @extend .accent-color--active--background--important;
+        background-color: $color-accent;
 
         .x-btn-icon-el {
             color: #fff;
