@@ -61,3 +61,19 @@ button.button-rule {
     background-color: #fff;
     border-radius: 0 0 2px 2px;
 }
+
+// Tables
+table.sortable,
+table.mysortable {
+    border-color: #bbbbbb;
+}
+table {
+    border-collapse: collapse;
+
+    .table_header td {
+        text-shadow: 1px 1px 0 rgba(#000, 0.1);
+        padding: 6px 10px 6px 15px;
+        border-color: material-color($color-blue-grey, 800);
+        background-color: material-color($color-blue-grey, 600);
+    }
+}
