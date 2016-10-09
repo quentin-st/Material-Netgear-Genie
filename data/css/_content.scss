@@ -11,9 +11,21 @@
     }
 }
 
+iframe {
+    display: block;
+    max-width: 900px;
+    margin-left: auto!important;
+    margin-right: auto!important;
+}
+
 // Iframes body
+html {
+    width: 100%!important;
+}
 body[data-iframe] {
     padding-top: 18px!important;
+    margin-left: auto!important;
+    margin-right: auto!important;
 }
 
 // Page title
