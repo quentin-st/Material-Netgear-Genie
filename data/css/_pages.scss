@@ -57,7 +57,7 @@
             $icons: (
                 Internet: $mdi-earth,
                 Wireless: $mdi-access-point-network,
-                AttachedDevices: $mdi-cellphone-link,
+                AttachedDevices: $mdi-lan,
                 ParentalControls: $mdi-human-child,
                 ReadyShare: $mdi-usb,
                 GuestNetwork: $mdi-account-multiple
@@ -80,6 +80,29 @@
         // 2nd row top padding
         &:nth-child(2) > td:before {
             top: 5px;
+        }
+    }
+}
+
+// Advanced dashboard
+[data-pathname="/ADVANCED_home2.htm"] {
+    .jspPane > table > tbody > tr > td > div > div {
+        position: relative;
+
+        &:before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 5px;
+            border-radius: 2px;
+            @extend .elevation-lowest;
+        }
+
+        > table > tbody > tr > td > table {
+            background: none;
         }
     }
 }
