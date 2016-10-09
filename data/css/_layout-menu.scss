@@ -96,15 +96,19 @@
         }
     }
     > li:not(.noSub) {
-        > a:before {
-            @include material-icon-onbefore($mdi-chevron-down);
-            float: right;
-            margin-left: 10px;
-            color: rgba(#000, 0.5);
-            line-height: 14px;
-            font-size: 14px;
+        > a {
+            padding-right: 10px;
+
+            span:before {
+                @include material-icon-onbefore($mdi-chevron-down);
+                float: right;
+                margin-left: 10px;
+                color: rgba(#000, 0.5);
+                line-height: 14px;
+                font-size: 14px;
+            }
         }
-        &.SubActive > a:before {
+        &.SubActive > a span:before {
             @include material-icon-onbefore($mdi-chevron-up);
         }
     }
