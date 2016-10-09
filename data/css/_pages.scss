@@ -1,0 +1,85 @@
+/**
+ * Material-Netgear-Genie
+ * Page-specific styling
+ */
+
+// Dashboard
+[data-pathname="/DashBoard.htm"] {
+    & {
+        background: none!important;
+    }
+
+    // Cards
+    > table > tbody > tr {
+        > td {
+            position: relative;
+
+            > div {
+                position: relative;
+                background-image: none !important;
+
+                &:nth-child(1) { }
+                &:nth-child(2) {
+                    border-bottom: 0 !important;
+
+                    > div {
+                        background-image: none !important;
+                        border-bottom-color: $color-border-dark !important;
+                    }
+                }
+                &:nth-child(3) {
+                    .normal-bottom {
+                        background-image: none;
+                    }
+                }
+            }
+
+            // Shadow, background & border radius
+            &:before {
+                position: absolute;
+                content: "";
+                z-index: -1;
+                top: 2px;
+                right: 2px;
+                bottom: 2px;
+                left: 7px;
+                border-radius: 2px;
+                background: #fff;
+                @include transition-duration($timing-medium);
+                @include transition-property(box-shadow);
+                @extend .elevation-lowest;
+            }
+            &:hover:before {
+                @extend .elevation-low;
+            }
+
+            // Icons
+            $icons: (
+                Internet: $mdi-earth,
+                Wireless: $mdi-access-point-network,
+                AttachedDevices: $mdi-cellphone-link,
+                ParentalControls: $mdi-human-child,
+                ReadyShare: $mdi-usb,
+                GuestNetwork: $mdi-account-multiple
+            );
+            @each $id, $icon in $icons {
+                &##{$id} > div:nth-child(2) > div {
+                    img {
+                        display: none;
+                    }
+                    &:before {
+                        @include material-icon-onbefore($icon);
+                        color: $color-primary;
+                        font-size: 70px;
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+
+        // 2nd row top padding
+        &:nth-child(2) > td:before {
+            top: 5px;
+        }
+    }
+}
