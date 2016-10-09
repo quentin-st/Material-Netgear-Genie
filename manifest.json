@@ -39,6 +39,8 @@
     "web_accessible_resources": [
         "data/js/content-script.js",
 
+        "data/img/favicon.ico",
+
         "data/css/style.css",
         "data/css/fonts/roboto.css",
         "data/css/fonts/materialdesignicons.css"

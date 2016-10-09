@@ -54,6 +54,12 @@
             s.type = 'text/css';
             target.head.appendChild(s);
         },
+        injectFavicon: function(src, target) {
+            var s = target.createElement('link');
+            s.rel = 'shortcut icon';
+            s.href = src;
+            target.head.appendChild(s);
+        },
         injectAll: function(target) {
             if (target == undefined) {
                 console.error('Could not inject dependencies into target.');
@@ -72,6 +78,9 @@
             deps.css.forEach(function(uri) {
                 that.injectStylesheet(that.getDepURI(uri), target);
             });
+
+            // Inject favicon
+            that.injectFavicon(that.getDepURI('data/img/favicon.ico'), target);
         }
     };
 

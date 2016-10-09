@@ -1,12 +1,9 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-#
-# This script allows us to generate static PNG icons from the SVG version.
-# It on svgexport npm package: https://github.com/shakiba/svgexport
-#
 
 import os
 import json
+from PIL import Image
 
 manifest = 'manifest.json'
 destination = 'data/img'
@@ -17,27 +14,24 @@ with open(manifest) as manifest_file:
 
 icons_dicts = [
     manifest_json['icons'],
-    manifest_json['browser_action']['default_icon']
+    # manifest_json['browser_action']['default_icon']
 ]
 
 dimensions = []
 for icons_dict in icons_dicts:
     for key in icons_dict.keys():
         if key not in dimensions:
-            dimensions.append(key)
+            dimensions.append(int(key))
 
 # Generate!
 os.chdir(destination)
 for dimension in dimensions:
+    if dimension == 256:
+        continue
+
     icon_name = 'icon-{}x{}.png'.format(dimension, dimension)
     print('\tGenerating {}'.format(icon_name))
 
-    command = "svgexport {input} {output} {width}:{height}".format(
-        input='icon.svg',
-        output=icon_name,
-        width=dimension,
-        height=dimension
-    )
-
-    print(command)
-    os.system(command)
+    im = Image.open('icon-256x256.png')
+    im.thumbnail((dimension, dimension), Image.ANTIALIAS)
+    im.save(icon_name, 'png')
