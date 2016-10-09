@@ -157,14 +157,14 @@ $icons-basic: (
 );
 $icons-advanced: (
     adv-home:   $mdi-home-variant,
-    wizard:     $mdi-dots-horizontal,
-    wps-wizard: $mdi-dots-horizontal,
-    setup_header:       $mdi-settings,
+    wizard:     $mdi-auto-fix,
+    wps-wizard: $mdi-auto-fix,
+    setup_header:       $mdi-wrench,
     USBStorage_header:  $mdi-usb,
     downloader_header:  $mdi-cloud-download,
     security_header:    $mdi-security-network,
     administration:     $mdi-settings,
-    advset_header:      $mdi-settings
+    advset_header:      $mdi-server-security
 );
 
 // Base icon class
