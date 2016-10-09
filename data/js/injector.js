@@ -22,10 +22,16 @@
             document.head.appendChild(m);
             return m;
         },
+        getDepURI: function(relative) {
+            var prefix = relative.substring(0, 'http'.length);
+
+            return prefix == 'http' || prefix == 'file'
+                ? relative
+                : chrome.extension.getURL(relative);
+        },
         getDeps: function() {
             return {
                 js: [
-                    'data/js/material-netgear-genie.js',
                     'data/js/content-script.js'
                 ],
                 css: [
@@ -59,26 +65,13 @@
 
             // Inject scripts
             deps.js.forEach(function(uri) {
-                that.injectScript(MaterialNetgearGenie.getDepURI(uri), target);
+                that.injectScript(that.getDepURI(uri), target);
             });
 
             // Inject stylesheets
             deps.css.forEach(function(uri) {
-                that.injectStylesheet(MaterialNetgearGenie.getDepURI(uri), target);
+                that.injectStylesheet(that.getDepURI(uri), target);
             });
-        },
-        waitFor: function(something, onceReady) {
-            var timeout = 100,
-                t = 0;
-            var i = setInterval(function() {
-                if (something()) {
-                    clearInterval(i);
-                    onceReady();
-                }
-
-                if (t++ > timeout)
-                    clearInterval(i);
-            }, 200);
         }
     };
 
@@ -90,23 +83,5 @@
     // Append Material-Netgear-Genie meta tag to head
     Injector.addMeta(Injector.metaName, true);
 
-    // Inject dependencies in main frame
     Injector.injectAll(document);
-
-    // Inject dependencies in all iframes
-    var iframes = document.getElementsByTagName('iframe');
-    for (var i=0, l=iframes.length; i<l; i++) {
-        var iframe = iframes[i];
-
-        // Mutable variable access precautions
-        iframe.onload = (function (iframe) {
-            return function () {
-                var doc = iframe.contentWindow.document;
-                Injector.injectAll(doc);
-
-                // Define a body attribute so we know we're in an iframe
-                doc.body.setAttribute('data-iframe', 'true');
-            }
-        })(iframe);
-    }
 })();

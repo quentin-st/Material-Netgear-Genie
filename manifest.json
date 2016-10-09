@@ -22,27 +22,21 @@
         }
     },
 
-    "permissions": [
-        "tabs",
-        "activeTab",
-        "storage"
-    ],
+    "permissions": [],
     "content_scripts": [
         {
             "matches": [
-                "http://routerlogin.com/*",
-                "http://routerlogin.net/*",
-                "https://routerlogin.com/*",
-                "https://routerlogin.net/*"
+                "*://routerlogin.com/*",
+                "*://routerlogin.net/*"
             ],
+            "all_frames": true,
             "js": [
-                "data/js/material-netgear-genie.js",
-                "data/js/injector.js"
+                "data/js/injector.js",
+                "data/js/content-script.js"
             ]
         }
     ],
     "web_accessible_resources": [
-        "data/js/material-netgear-genie.js",
         "data/js/content-script.js",
 
         "data/css/style.css",
