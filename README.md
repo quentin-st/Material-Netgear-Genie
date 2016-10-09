@@ -5,6 +5,10 @@ into its web interface via a Google Chrome or Firefox extension.
 
 This redesign is hugely inspired by [Google's Material design guidelines](https://material.google.com/).
 
+| Before | After |
+|--------|-------|
+| ![Without Material Netgear Genie](doc/screenshot-before.png) | ![With Material Netgear Genie](doc/screenshot-after.png) | 
+
 ## How does it work?
 Quite straight-forward actually: [`injector.js`](data/js/injector.js) file is injected by
 either Chrome or Firefox inside the tab. Its aim is to inject the necessary resources -
