@@ -4,14 +4,33 @@
  */
 
 // Disable content background color
-// so we can see tabs shadow
-#basic-pane table td {
-    background-color: transparent!important;
+// so we can see shadows
+#basic-pane, #adv-pane {
+    table td {
+        background-color: transparent !important;
+    }
 }
 
 // Iframes body
+body[data-iframe] {
+    padding-top: 18px!important;
+}
+
+// Page title
+.subhead2, .page_title {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 12px 0 8px 20px;
+    background: none;
+    font-size: 19px;
+    color: $color-primary;
+}
+
+// Content
 .scroll-pane { outline: none; }
 .body-image { display: none; }
+.subtop-image { display: none; }
 #full-page-container {
     background: #fff;
     top: 18px;

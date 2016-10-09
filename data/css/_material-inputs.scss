@@ -1,0 +1,33 @@
+/**
+ * Material-Netgear-Genie
+ * Material inputs
+ */
+
+// Text input
+input[type="text"], select {
+    padding: 4px;
+    border: 1px solid $color-input-border;
+    border-radius: 2px;
+    font-family: $roboto;
+    @include transition-property(box-shadow, background-color, border-color);
+    @include transition-duration($timing-short);
+
+    &:hover:not([disabled]) {
+        background-color: rgba(#000, 0.01);
+        @extend .elevation-tiny;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: $color-accent;
+    }
+
+    &[disabled] {
+        color: #888;
+    }
+}
+
+select {
+    background: #fbfbfb;
+    min-width: 200px;
+}

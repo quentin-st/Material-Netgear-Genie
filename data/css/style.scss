@@ -18,6 +18,7 @@ $color-primary: material-color($color-deep-purple);
 $color-accent: material-color($color-green);
 
 @import 'material-buttons';
+@import 'material-inputs';
 @import 'ui';
 
 @import 'layout-header';
