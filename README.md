@@ -5,6 +5,9 @@ into its web interface via a Google Chrome or Firefox extension.
 
 This redesign is hugely inspired by [Google's Material design guidelines](https://material.google.com/).
 
+[![Download on Chrome Web Store](doc/download-chrome-web-store.png)](https://chrome.google.com/webstore/detail/material-netgear-genie/fnifjjbopdjmiioinflohfbllfocembe)
+[![Download for Firefox](doc/download-firefox.png)](https://addons.mozilla.org/en-US/firefox/addon/material-netgear-genie/)
+
 | Before | After |
 |--------|-------|
 | ![Without Material Netgear Genie](doc/screenshot-before.png) | ![With Material Netgear Genie](doc/screenshot-after.png) | 
