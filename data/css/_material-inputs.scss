@@ -30,4 +30,10 @@ input[type="text"], select {
 select {
     background: #fbfbfb;
     min-width: 200px;
+    padding: 0;
+    height: 25px!important;
+
+    &[multiple] {
+        height: auto!important;
+    }
 }

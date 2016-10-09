@@ -8,8 +8,11 @@
 .page-table-button-left,
 .page-table-button-right {
     background-image: none;
-    @extend .material-button--elevated--primary;
-    @extend .material-button-xs;
+
+    span {
+        @extend .material-button--elevated--primary;
+        @extend .material-button-xs;
+    }
 }
 
 // Overall buttons
@@ -31,6 +34,14 @@ button.button-rule {
     }
     span.roundright_button {
         display: none;
+    }
+}
+
+// Weird inputs
+input {
+    &.num,
+    &[name] {
+        @extend input[type="text"];
     }
 }
 
